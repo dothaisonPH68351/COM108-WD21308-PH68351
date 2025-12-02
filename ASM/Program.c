@@ -95,13 +95,36 @@ void Kiem_tra_so_nguyen()
     } while (tiepTuc == '1');
 }
 
-void Tim_uoc_chung_va_boi_chung_cua_2_so() {
-    clear();
-    printf("======================================\n");
-    printf("   2. TIM UCLN & BCNN CUA HAI SO\n");
-    printf("======================================\n");
-    printf("22222222222 - Chua lam xong\n");
-    pause();
+void Tim_uoc_chung_va_boi_chung_cua_2_so()
+{
+    char tiepTuc;
+    do
+    {
+        clear();
+        printf("======================================\n");
+        printf("   2. TIM UCLN & BCNN CUA HAI SO\n");
+        printf("======================================\n");
+
+       
+
+        printf("\n");
+        printf("Ban co muon tiep tuc khong?\n");
+        printf("[1] Co - Nhap so khac\n");
+        printf("[0] Khong - Ve menu chinh\n");
+        while (1)
+        {
+            printf("Chon (1 hoac 0): ");
+            scanf(" %c", &tiepTuc);
+
+            if (tiepTuc == '1' || tiepTuc == '0')
+                break;
+            else
+                printf("Chi nhap 1 hoac 0 thoi! Nhap lai...\n");
+        }
+        if (tiepTuc == '0')
+            return;
+    } while (tiepTuc == '1');
+
 }
 
 void Tinh_tien_cho_quan_Karaoke() {
