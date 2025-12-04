@@ -104,8 +104,90 @@ void Tim_uoc_chung_va_boi_chung_cua_2_so()
         printf("======================================\n");
         printf("   2. TIM UCLN & BCNN CUA HAI SO\n");
         printf("======================================\n");
+        int x, y;
 
-       
+        printf("Nhap 2 so nguyen x, y: ");
+        scanf("%d %d", &x, &y);
+
+        int a = abs(x);
+        int b = abs(y);
+        int ucln = a;
+        int temp_b = b;
+
+        while (temp_b != 0) {
+            int r = ucln % temp_b; // thuat toan euclid
+            ucln = temp_b;
+            temp_b = r;
+        }
+
+        long long bcnn;
+        if (ucln == 0) 
+        {
+            bcnn = 0;
+        }
+        else {
+            bcnn = (long long)abs(x) / ucln * abs(y);
+        }
+
+      
+        printf("\n=> Ket qua:\n");
+        printf("Uoc so chung lon nhat (UCLN): %d\n", ucln);
+        if (ucln == 0) {
+            printf("Boi so chung nho nhat (BCNN): Khong xac dinh (vi co so 0)\n");
+        }
+        else {
+            printf("Boi so chung nho nhat (BCNN): %lld\n", bcnn);
+        }
+        printf("\n");
+        printf("Ban co muon tiep tuc khong?\n");
+        printf("[1] Co - Nhap so khac\n");
+        printf("[0] Khong - Ve menu chinh\n");
+        while (1)
+        {
+            printf("Chon (1 hoac 0): ");
+            scanf(" %c", &tiepTuc);
+
+            if (tiepTuc == '1' || tiepTuc == '0')
+                break;
+            else
+                printf("Chi nhap 1 hoac 0 thoi! Nhap lai...\n");
+        }
+        if (tiepTuc == '0')
+            return;
+    } while (tiepTuc == '1');
+}
+
+void Tinh_tien_cho_quan_Karaoke()
+{
+    char tiepTuc;
+    do
+    {
+        clear();
+        printf("======================================\n");
+        printf("   3. TINH TIEN KARAOKE\n");
+        printf("======================================\n");
+        int x, y, z;
+        printf("nhap gio bat dau(12-23) x:\n");
+        scanf("%d", &x);
+        printf("nhap gio ket thuc(12-23) y:\n");
+        scanf("%d", &y);
+
+        if (x > 12 && y < 23 && x < y)
+        {
+            int hours = y - x;
+            double total = 0;
+            if (hours <= 3) total = hours * 50000;
+            else total = 3 * 50000 + (hours - 3) * 50000 * 0.7;
+            if (x >= 14 && x <= 17) total *= 0.9;
+            printf("Tong tien karaoke: %.0f VND\n", total);
+
+        }
+        else
+        {
+            printf("Khong hop le! Vui long nhap lai.\n");
+            
+        }
+
 
         printf("\n");
         printf("Ban co muon tiep tuc khong?\n");
@@ -124,16 +206,6 @@ void Tim_uoc_chung_va_boi_chung_cua_2_so()
         if (tiepTuc == '0')
             return;
     } while (tiepTuc == '1');
-
-}
-
-void Tinh_tien_cho_quan_Karaoke() {
-    clear();
-    printf("======================================\n");
-    printf("   3. TINH TIEN KARAOKE\n");
-    printf("======================================\n");
-    printf("333333 - Chua lam xong\n");
-    pause();
 }
 
 void Tinh_tien_dien() {
